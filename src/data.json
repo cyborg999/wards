@@ -1,0 +1,135 @@
+{"info": {"year":2022,"version":"0.1.0","description":"for pos of the future","url":"","date_created":1665098295767},"categories": [
+  {
+    "id": 1,
+    "datatorch_id": "c9ddf7dc-5156-4658-bb50-e3e2c8e9b551",
+    "name": "c2 apple",
+    "supercategory": "49139b27-b5a7-4a1b-80a4-f48a070ffc1c"
+  },
+  {
+    "id": 2,
+    "datatorch_id": "c1914262-243f-419b-abb4-fd95dee7b931",
+    "name": "label4",
+    "supercategory": "1731c168-32a7-4423-b3d5-2fd514101c30"
+  },
+  {
+    "id": 3,
+    "datatorch_id": "1731c168-32a7-4423-b3d5-2fd514101c30",
+    "name": "label2",
+    "supercategory": null
+  },
+  {
+    "id": 4,
+    "datatorch_id": "49139b27-b5a7-4a1b-80a4-f48a070ffc1c",
+    "name": "Beverage",
+    "supercategory": null
+  }
+],"images": [
+  {
+    "id": 1,
+    "datatorch_id": "8cd2153f-5024-40e2-b4aa-55921c9a92f7",
+    "storage_id": "92d2f884-e046-495f-9693-c5369927d61f",
+    "path": "29064636_1872062246139510_7260473552555512049_o.jpg",
+    "width": 1080,
+    "height": 1080,
+    "file_name": "29064636_1872062246139510_7260473552555512049_o.jpg",
+    "metadata": {},
+    "date_captured": "2022-10-06T22:29:07.402Z"
+  },
+  {
+    "id": 2,
+    "datatorch_id": "0e337dc9-7bc4-44c7-9dc2-1c93c9b0bd36",
+    "storage_id": "92d2f884-e046-495f-9693-c5369927d61f",
+    "path": "35565FBED50D3E61.jpeg",
+    "width": 1024,
+    "height": 1366,
+    "file_name": "35565FBED50D3E61.jpeg",
+    "metadata": {},
+    "date_captured": "2022-10-06T22:29:07.715Z"
+  },
+  {
+    "id": 3,
+    "datatorch_id": "5a15fa8c-d1da-41b0-99fb-97f5343d3ac9",
+    "storage_id": "92d2f884-e046-495f-9693-c5369927d61f",
+    "path": "4f5fef752cdca25f508a05e02efb8f91.jfif",
+    "width": 640,
+    "height": 640,
+    "file_name": "4f5fef752cdca25f508a05e02efb8f91.jfif",
+    "metadata": {},
+    "date_captured": "2022-10-06T22:29:07.340Z"
+  },
+  {
+    "id": 4,
+    "datatorch_id": "a2a24696-70ad-4289-9877-d08c7da93d1a",
+    "storage_id": "92d2f884-e046-495f-9693-c5369927d61f",
+    "path": "6000199737504.jpg",
+    "width": 518,
+    "height": 1500,
+    "file_name": "6000199737504.jpg",
+    "metadata": {},
+    "date_captured": "2022-10-06T22:29:07.449Z"
+  },
+  {
+    "id": 5,
+    "datatorch_id": "91d3f080-cdc0-4f97-bc37-45e44b5629a9",
+    "storage_id": "92d2f884-e046-495f-9693-c5369927d61f",
+    "path": "C2-Cool-Clean-Apple-Green-Tea-335ML.jpg",
+    "width": 200,
+    "height": 202,
+    "file_name": "C2-Cool-Clean-Apple-Green-Tea-335ML.jpg",
+    "metadata": {},
+    "date_captured": "2022-10-06T22:29:07.152Z"
+  },
+  {
+    "id": 6,
+    "datatorch_id": "bc46137a-8f05-448b-bf83-51bec39f7412",
+    "storage_id": "92d2f884-e046-495f-9693-c5369927d61f",
+    "path": "C2-GREEN-TEA-APPLE-355ML.webp",
+    "width": 1000,
+    "height": 1000,
+    "file_name": "C2-GREEN-TEA-APPLE-355ML.webp",
+    "metadata": {},
+    "date_captured": "2022-10-06T22:29:07.324Z"
+  },
+  {
+    "id": 7,
+    "datatorch_id": "16cb996e-340a-40cf-a42b-5459326b325f",
+    "storage_id": "92d2f884-e046-495f-9693-c5369927d61f",
+    "path": "download.jfif",
+    "width": 151,
+    "height": 334,
+    "file_name": "download.jfif",
+    "metadata": {},
+    "date_captured": "2022-10-06T22:29:07.121Z"
+  },
+  {
+    "id": 8,
+    "datatorch_id": "a6956fae-17ef-46c1-9dd9-58eb2f6260b8",
+    "storage_id": "92d2f884-e046-495f-9693-c5369927d61f",
+    "path": "front_en.4.400.jpg",
+    "width": 189,
+    "height": 400,
+    "file_name": "front_en.4.400.jpg",
+    "metadata": {},
+    "date_captured": "2022-10-06T22:29:06.246Z"
+  },
+  {
+    "id": 9,
+    "datatorch_id": "2a079604-bdae-4d12-8946-93cf5ca41f0d",
+    "storage_id": "92d2f884-e046-495f-9693-c5369927d61f",
+    "path": "image-EB408-apple-Green-Tea-500ml-A_800x.webp",
+    "width": 800,
+    "height": 800,
+    "file_name": "image-EB408-apple-Green-Tea-500ml-A_800x.webp",
+    "metadata": {},
+    "date_captured": "2022-10-06T22:29:07.309Z"
+  }
+],"annotations": [
+{"id":1,"datatorch_id":"23f924e4-4ad4-4d64-b939-488110903053","image_id":9,"category_id":1,"segmentation":[[276.732673267327,111.188118056496,485.643564356436,111.188118056496,485.643564356436,717.128712115902,276.732673267327,717.128712115902]],"area":126587.59,"bbox":[276.732673267327,111.188118056496,208.910891089109,605.940594059406],"iscrowd":0},
+{"id":2,"datatorch_id":"2e881ed6-a80b-414e-919e-240cb99710d4","image_id":8,"category_id":1,"segmentation":[[29.4009900990099,41.2376233846835,155.1435643564359,41.2376233846835,155.1435643564359,360.5445540777525,29.4009900990099,360.5445540777525]],"area":40150.48,"bbox":[29.4009900990099,41.2376233846835,125.742574257426,319.306930693069],"iscrowd":0},
+{"id":3,"datatorch_id":"9d85244a-f4ee-4216-9704-67b8bca2def8","image_id":4,"category_id":1,"segmentation":[[27.8737623762376,158.353958979692,478.9876237623766,158.353958979692,478.9876237623766,1348.329206504442,27.8737623762376,1348.329206504442]],"area":536814.33,"bbox":[27.8737623762376,158.353958979692,451.113861386139,1189.97524752475],"iscrowd":0},
+{"id":4,"datatorch_id":"d9383f76-328d-4647-a03d-f936aabc43f8","image_id":3,"category_id":1,"segmentation":[[87.5247524752475,66.7722766234143,504.9504950495045,66.7722766234143,504.9504950495045,570.5346528610382,87.5247524752475,570.5346528610382]],"area":210283.38,"bbox":[87.5247524752475,66.7722766234143,417.425742574257,503.762376237624],"iscrowd":0},
+{"id":5,"datatorch_id":"f019caa4-666c-4fa0-844e-66d39957e173","image_id":5,"category_id":1,"segmentation":[[2.625,21.8249998092651,70.625,21.8249998092651,70.625,181.0749998092651,2.625,181.0749998092651]],"area":10829,"bbox":[2.625,21.8249998092651,68,159.25],"iscrowd":0},
+{"id":6,"datatorch_id":"f49f018b-0da5-476a-ac74-49e827b9169c","image_id":6,"category_id":1,"segmentation":[[92.2029702970298,109.28217727359,863.2425742574258,109.28217727359,863.2425742574258,880.321781233986,92.2029702970298,880.321781233986]],"area":594502.07,"bbox":[92.2029702970298,109.28217727359,771.039603960396,771.039603960396],"iscrowd":0},
+{"id":7,"datatorch_id":"fb1e0e2c-3d91-4eb4-8a2e-3eb5908b9989","image_id":1,"category_id":1,"segmentation":[[221.212871287129,111.341583138645,730.470297029703,111.341583138645,730.470297029703,946.737622742605,221.212871287129,946.737622742605]],"area":425431.64,"bbox":[221.212871287129,111.341583138645,509.257425742574,835.39603960396],"iscrowd":0},
+{"id":8,"datatorch_id":"ff4a90fb-6150-4684-bd58-9fb16e077a79","image_id":7,"category_id":1,"segmentation":[[5.4344059405941,35.260148199478,145.5655940594061,35.260148199478,145.5655940594061,299.401237308389,5.4344059405941,299.401237308389]],"area":37014.4,"bbox":[5.4344059405941,35.260148199478,140.131188118812,264.141089108911],"iscrowd":0}
+]}
