@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Axios from "axios";
 import server from "./../config/server";
+import Errors from "./Errors";
 
 function Register(){
     let [ inputs, setInputs ] = useState({});
@@ -22,11 +23,7 @@ function Register(){
     }
     return (
         <div className="container">
-            {   
-                (errors.data) &&  errors.data.map( (err, idx) => {
-                    return (<p key={ idx } className="error">{ err }</p>)
-                })
-            }
+            <Errors errors={ errors }/>
             <h1>Register</h1>
             <form onSubmit={ handleSubmit }>
                 <fieldset>

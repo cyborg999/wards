@@ -1,10 +1,14 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import Axios from "axios";
 import server from "./../config/server";
+import { useNavigate } from "react-router-dom";
+import Errors from "./Errors";
 
-function Login(){
+function Login(props){
     let [inputs, setInput] = useState({});
-
+    let [ errors, setErrors ] = useState([]);
+    let self = this;
+    const navigate = useNavigate();
     const handleChange = (e) => {
         let { name, value } = e.target;
 
@@ -15,12 +19,18 @@ function Login(){
         e.preventDefault();
 
         Axios.post(server.url+"/login", inputs).then(res => {
-            console.log(res.data.length)
+            setErrors(res.data.errors);
+
+            if(res.data.errors.length == 0){
+                console.log(res.data)
+                navigate("/dashboard")
+            } 
         })
     }
 
     return (
         <div className="login">
+            <Errors errors={ errors }/>
             <form onSubmit={ handleSubmit }>
                 <fieldset>
                     <label>Username: </label>
