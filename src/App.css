@@ -215,7 +215,7 @@ a.profile {
   height: 500px;
   margin: 0 auto;
   border-radius: 20px;
-  border: 2px solid white;
+  overflow: hidden;
 }
 .video_container * {
   margin: 0;

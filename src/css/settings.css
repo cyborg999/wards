@@ -1,14 +1,15 @@
 
- * {
-    color: red;
- }
- 
- fieldset {
+.setting {
+    background-color: white;
+    color: black;
+}
+    fieldset {
         border: none;
         padding: 10px 0;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        width: 100%;
     }
         fieldset input {
             flex: 1;

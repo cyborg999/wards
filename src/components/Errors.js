@@ -1,5 +1,4 @@
 function Errors(props) {
-    console.log("D2", props.errors)
     return (
         <div className="errors">
             <h5>err</h5>

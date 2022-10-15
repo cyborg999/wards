@@ -22,9 +22,9 @@ function Login(props){
             setErrors(res.data.errors);
 
             if(res.data.errors.length == 0){
-                console.log(res.data)
-                navigate("/dashboard")
-            } 
+                sessionStorage.setItem("user", JSON.stringify(res.data.details[0]))
+                navigate("/settings")
+            }   
         })
     }
 

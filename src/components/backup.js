@@ -3,8 +3,6 @@ import * as tf from "@tensorflow/tfjs";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import Preloader from "./Preloader";
 import "./../App.css";
-import server from "./../config/server";
-import axios from "axios";
 
 class Video extends React.Component {
   constructor(props){
@@ -15,9 +13,8 @@ class Video extends React.Component {
       , model : false
       , children : []
       , records : []
-      , lastBlob : {}
+      , blobContainer : []
       , preloader : true
-      , interval : 0
     }
 
     this.videoRef = React.createRef();
@@ -34,18 +31,9 @@ class Video extends React.Component {
       return;
     }
 
-    let { lastBlob, interval } = this.state;
-
     this.recording.current = false;
     this.recorder.current.stop();
-    console.log("stopped recording", lastBlob);
-
-    this.setState({
-      interval : 0
-    })
-    axios.post(server.url+"/addvideo", { videoBlob: lastBlob}).then(res => {
-      console.log(res)
-    })
+    console.log("stopped recording");
     // lastDetectionsRef.current = [];
   }
 
@@ -58,35 +46,45 @@ class Video extends React.Component {
     this.recording.current = true;
     console.log("start recording");
 
+    let blobContainer = []; 
     this.recorder.current = new MediaRecorder(window.stream);
     this.recorder.current.start();
-    this.recorder.current.onerror = (e) => {
-      console.log(e.error)
-    }
 
     this.recorder.current.ondataavailable = function(e) {
       const title = new Date() + "";
-      const href = URL.createObjectURL(e.data);
+      // let blobUrl = window.URL.createObjectURL(new Blob(blobContainer));
+      const href = window.URL.createObjectURL(e.data);
 
-      try {
-        records.push({ href, title });
-        that.setState({
-          records : records
-          , lastBlob : { href, title }
-        })
-      }
-      catch (error) {
-        console.log(error);
-      }
+      blobContainer.push({
+        title : title
+        , href : href
+      })
+
+      records.push(blobContainer);
+
+      that.setState({
+        records : records
+      })
     };
+
+    this.recorder.current.onstop = (e) => {
+      let blobUrl = window.URL.createObjectURL(new Blob(blobContainer));
+      console.log("stop")
+      // records.push(blobContainer);
+      // that.setState({
+      //   records : records
+      // })
+    }
 
   }
 
    async predictWebcam() {
-    let { children, interval } = this.state;
+    let { children } = this.state;
     let subjectFound = false;
     const predictions = await this.state.model.detect(this.videoRef.current);
 
+    // console.log(predictions)
+    
     for (let i = 0; i < children.length; i++) {
       this.liveView.current.removeChild(children[i]);
     }
@@ -189,7 +187,7 @@ class Video extends React.Component {
 
       if(supported){
         this.openCam();
-        // console.log("cam opened")
+        console.log("cam opened")
       } else {
         console.warn('getUserMedia() is not supported by your browser');
       }
@@ -200,42 +198,30 @@ class Video extends React.Component {
     let { records, preloader } = this.state;
     
     return (
-      <>
-        <div className="sec_controls">
-          <ul className="sec1_nav">
-              <li><a href="" className="home"></a></li>
-              <li><a href="" className="live"></a></li>
-              <li><a href="" className="list"></a></li>
-              <li><a href="" className="setting"></a></li>
-          </ul>
-          <a href="" className="profile"></a>
+      <div className="sec_content">
+        <Preloader preloader={ preloader }/>
+        <div className="sec_videos">
+          {!records.length
+            ? <><div className="preview" key={1}>
+            </div>
+            <div className="preview" key={2}>
+            </div>
+            </>
+            : records.map(record => {
+                return (
+                  <div className="preview"  key={record.title}>
+                      <h5 className="card-title">{record.title}</h5>
+                      <video controls src={record.href}></video>
+                  </div>
+                );
+            })}
         </div>
-        <div className="sec_content">
-          <Preloader preloader={ preloader }/>
-          <div className="sec_videos">
-            {!records.length
-              ? <><div className="preview" key={1}>
-              </div>
-              <div className="preview" key={2}>
-              </div>
-              </>
-              : records.map( (record, idx) => {
-                  return (
-                    <div className="preview"  key={ idx }>
-                        <h5 className="card-title">{record.title}</h5>
-                        <video controls src={record.href}></video>
-                    </div>
-                  );
-              })}
-          </div>
-          <div className="sec_video">
-            <button id="end">end stream</button>
-              <div className="video_container camView" ref={ this.liveView } id="liveView">
-                <video  autoPlay muted width="640" height="480" ref={ this.videoRef }/>
-              </div>
-          </div>
+        <div className="sec_video">
+            <div className="video_container camView" ref={ this.liveView } id="liveView">
+              <video  autoPlay muted width="640" height="480" ref={ this.videoRef }/>
+            </div>
         </div>
-      </>
+    </div>
     )
   }
 }
