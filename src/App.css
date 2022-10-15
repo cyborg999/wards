@@ -1,28 +1,7 @@
-body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 2em;
-  color: #3D3D3D;
-}
-
-h1 {
-  font-style: italic;
-  color: #FF6F00;
-}
-
-video {
-  display: block;
-}
-
-section {
-  opacity: 1;
-  transition: opacity 500ms ease-in-out;
-}
-
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 .removed {
   display: none;
 }
-
 .invisible {
   opacity: 0.2;
 }
@@ -49,4 +28,223 @@ section {
   border: 2px dashed green;
   z-index: 1;
   position: absolute;
+}
+
+
+/* start main css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter';
+  line-height: 1.1;
+  color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #212529;
+  padding: 20px;
+}
+.sec_left,
+.sec_right {
+  width: 50%;
+}
+figure,
+img {
+  max-width: 100%;
+}
+.wards {
+  background: black;
+}
+.sec1 {
+  min-height: 100vh;
+}
+.sec_controls {
+  width: initial;
+  margin-right: 20px;
+}
+.sec_content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+.sec0 .container {
+  justify-content: left;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  background: white url(./images/logo.png) no-repeat;
+  background-size: contain;
+  border-radius: 100%;
+  margin-right: 40px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.sec0 h1 {
+  font-weight: 900;
+  font-size: 4em;
+}
+.sec0 ul {
+  list-style-type: none;
+  flex: 2;
+  text-align: center;
+}
+.sec0 li {
+  display: inline;
+  margin: 10px 10px;
+  font-size: 1.3em;
+  line-height: 3.2;
+}
+.sec0 a {
+  text-decoration: none;
+}
+
+.sec1_nav {
+  list-style-type: none;
+  padding: 50px 10px;
+  background: #d2d2d2;
+  text-align: center;
+  border-radius: 20px;
+  width: 50px;
+}
+.sec1_nav:hover {
+  background: white;
+}
+.sec1_nav li {
+  padding: 15px 0;
+  font-weight: 800;
+
+}
+.sec1_nav a {
+  text-decoration: none;
+}
+a.home {
+  background: url(./images/home.png) no-repeat;
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  display: block;
+  margin: 0 auto;
+}
+a.live {
+  background: url(./images/video.png) no-repeat;
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  display: block;
+  margin: 0 auto;
+}
+a.list {
+  background: url(./images/videos.png) no-repeat;
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  display: block;
+  margin: 0 auto;
+}
+a.setting {
+  background: url(./images/setting.png) no-repeat;
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  display: block;
+  margin: 0 auto;
+}
+a.logout {
+  background: white url(./images/logout.png) no-repeat;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 100%;
+}
+a.profile {
+  background: white url(./images/profile.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 10%;
+}
+.sec_videos {
+  width: 20%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.sec_video {
+  width: 80%;
+}
+.preview {
+  width: 92%;
+  background-color: #151515;
+  height: 190px;
+  display: block;
+  margin: 10px auto 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.preview video {
+  width: 100%;
+  height: 142px;
+  object-fit: cover;
+}
+.preview:nth-child(even) {
+  background-color: #101010;
+}
+.cover {
+  width: 100px;
+  height: 100%;
+  background: url(./images/cover.png) no-repeat;
+  background-size: contain;
+  visibility: hidden;
+}
+.video_container {
+  width: 95%;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 2px solid white;
+}
+.video_container * {
+  margin: 0;
+  padding: 0;
+}
+.video_container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hidden {
+  display: none;
+}
+.preloader {
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.fig_preloader {
+  width: 300px;
+  height: 300px;
+  background:  url(./images/preloader.gif) no-repeat;
+  background-size: contain;
+  margin: 10% auto;
+  display: block;
+  background-position: center;
 }
