@@ -67,13 +67,25 @@ class Video extends React.Component {
       blobContainer.push(e.data);
       console.log("ondataavailable")
       try {
-        records.push({ href, title });
-        that.setState({
-          records : records
-        });
+        
 
         //check first if video is valid 
-        
+        let postData = {
+          href : href
+          , tag : tags.join()
+          , title : title
+          , id : user.id
+        }
+        console.log("POSTDATA", postData)
+         axios.post(server.url+"/addvideo",  postData).then(res=> {
+          console.log("isadded", res)
+          if(res.data){
+            records.push({ href, title });
+            that.setState({
+              records : records
+            });
+          }
+        });
 
       }
       catch (error) {
@@ -140,8 +152,8 @@ class Video extends React.Component {
         children.push(p);
 
         let target = predictions[n].class;
-        console.log(settings.obj)
-        settings.obj && settings.obj.forEach( obj => {
+        // console.log(settings.obj)
+        settings.obj.length && settings.obj.forEach( obj => {
           if(obj["label"] == target){
             subjectFound = true;
 

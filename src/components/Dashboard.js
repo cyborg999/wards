@@ -24,7 +24,7 @@ function Dashboard(props) {
                         <ul className="sec1_nav">
                             <li><Link to="/" className="home"></Link></li>
                             <li><Link to="video" className="live"></Link></li>
-                            <li><a href="" className="list"></a></li>
+                            <li><Link to="videos" className="list"></Link></li>
                             <li><Link to="settings" className="setting"></Link></li>
                         </ul>
                         <a href="" className="profile"></a>

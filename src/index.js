@@ -14,6 +14,7 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import Video from "./components/Video";
+import Videos from "./components/Videos";
 import Settings from "./components/Setting";
 import "./css/styles.css";
 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             {
               path: "video",
               element: <Video />,
+            },
+            {
+              path: "videos",
+              element: <Videos />,
             },
             
           ],
