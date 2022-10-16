@@ -1,4 +1,4 @@
-import { redirect, useNavigate, Outlet } from "react-router-dom";
+import { redirect, useNavigate, Outlet, Link } from "react-router-dom";
 
 function Dashboard(props) {
     const navigate = useNavigate();
@@ -9,10 +9,30 @@ function Dashboard(props) {
     // }
     console.log("dash")
     return (
-        <div className="dashboard">
-            <h1>Dashboard page</h1>
-            <Outlet/>
-        </div>
+        <main className="dashboard">
+            <header className="mainHeader">
+                <article className="container">
+                    <h1>Wards</h1>
+                    <Link to="logout" className="logout"></Link>
+                </article>
+            </header>
+            <section className="main_sec1">
+                <article className="container">
+                    <div className="sec_controls">
+                        <ul className="sec1_nav">
+                            <li><a href="" className="home"></a></li>
+                            <li><a href="" className="live"></a></li>
+                            <li><a href="" className="list"></a></li>
+                            <li><Link to="settings" className="setting"></Link></li>
+                        </ul>
+                        <a href="" className="profile"></a>
+                    </div>
+                    <div className="sec_content">
+                        <Outlet />
+                    </div>
+                </article>
+            </section>
+        </main>
     )
 }
 

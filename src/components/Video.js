@@ -262,16 +262,6 @@ class Video extends React.Component {
     
     return (
       <>
-        <div className="sec_controls">
-          <ul className="sec1_nav">
-              <li><a href="" className="home"></a></li>
-              <li><a href="" className="live"></a></li>
-              <li><a href="" className="list"></a></li>
-              <li><a href="" className="setting"></a></li>
-          </ul>
-          <a href="" className="profile"></a>
-        </div>
-        <div className="sec_content">
           <form id="frmVid">
             <input type="hidden" name="addVid" value="1"/>
           </form>
@@ -297,7 +287,6 @@ class Video extends React.Component {
                 <video  autoPlay muted width="640" height="480" ref={ this.videoRef }/>
               </div>
           </div>
-        </div>
       </>
     )
   }

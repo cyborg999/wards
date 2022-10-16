@@ -38,7 +38,7 @@
   box-sizing: border-box;
   font-family: 'Inter';
   line-height: 1.1;
-  color: white;
+  /* color: white; */
 }
 
 .container {
@@ -59,7 +59,7 @@ img {
   max-width: 100%;
 }
 .wards {
-  background: black;
+  /* background: black; */
 }
 .sec1 {
   min-height: 100vh;
@@ -160,8 +160,8 @@ a.setting {
 }
 a.logout {
   background: white url(./images/logout.png) no-repeat;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background-size: contain;
   display: block;
   margin: 0 auto;

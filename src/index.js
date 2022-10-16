@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import NotFound from "./components/NotFound";
 import {
@@ -10,29 +8,30 @@ import {
     Route,
   } from "react-router-dom";
 
-  import "./index.css";
   import Root, { loader as RootLoader } from "./routes/root";
   import Login from "./components/Login";
   import Home from "./components/Home";
+  import Register from "./components/Register";
   import Dashboard from "./components/Dashboard";
   import Video from "./components/Video";
 import Settings from "./components/Setting";
+import "./css/styles.css";
 
 const router = createBrowserRouter([
-    {
+      {
         path: "/",
-        element: <Root />,
-        errorElement: <NotFound />,
-        children: [
-            { index: true, element: <Home /> },
-            {
-              path: "login",
-              element: <Login />,
-            },
-          ],
+        element: <Home />,
       },
       {
-        path: "/dashboard",
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "dashboard",
         element: <Dashboard />,
         errorElement: <NotFound />,
         children: [
@@ -48,7 +47,6 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    // <App />
     <RouterProvider router={router} />
 );
 

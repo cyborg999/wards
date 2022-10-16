@@ -1,0 +1,123 @@
+
+
+.login {
+    
+}
+
+h1 {
+    display: block;
+    position: relative;
+    color: black;
+    font-size: 6em;
+    top: 50px;
+    left: 50px;
+    max-height: 100px;
+}
+h1:before {
+    content: "";
+    position: absolute;
+    left: -13px;
+    top: -7px;
+    height: 100%;
+    border: 5px dashed black;
+    width: 154px;
+    padding: 7px;
+}
+
+.login h1 {
+    width: 300px;
+    margin: 0 auto 40px;
+    font-size: 3em;
+}
+.login h1:before {
+    width: 80px;
+    padding: 3px;
+ }
+.sec1l .container {
+    display: block;
+}
+.login form {
+    width: 80%;
+    margin: 0 auto;
+}
+.login fieldset {
+    width: 50%;
+    margin: 0 auto;
+}
+.login label {
+    line-height: 2;
+}
+.login input {
+    border-radius: 10px;
+    padding: 10px;
+}
+.login .btnContainer {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: right; */
+}
+.login .btn {
+    background-color: blue;
+    color: white;
+    width: 188px;
+    display: block;
+    border: none;
+    font-weight: 800;
+    font-size: 2em;
+    cursor: pointer;
+}
+.errors {
+    margin: 20px auto;
+    text-align: center;
+}
+p.error {
+    background: #ff1717;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: initial;
+    display: inline-block;
+    font-weight: 600;
+    margin: 5px;
+}
+a.register {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    margin: auto;
+}
+.login h3 {
+    text-align: center;
+    font-size: 3em;
+    padding: 20px 0;
+}
+p.success {
+    display: block;
+    background: green;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin: 20px auto;
+    text-align: center;
+    width: 60%;
+}
+
+
+.dashboard h1 {
+    width: 300px;
+    margin: 0 auto;
+    font-size: 3em;
+    top: initial;
+    left: 10px;
+}
+.dashboard h1:before {
+    width: 80px;
+    padding: 3px;
+ }
+ .dashboardHeader {
+    background-color: #f4f4f4;
+ }
+ .dashboard .container {
+    width: 1200px;
+ }
