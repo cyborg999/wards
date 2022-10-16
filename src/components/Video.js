@@ -18,6 +18,11 @@ class Video extends React.Component {
       , lastBlob : {}
       , preloader : true
       , interval : 0
+      , settings : {
+        allow_audio: false
+        , percentage : 66
+        , obj : {}
+      }
     }
 
     this.videoRef = React.createRef();
@@ -25,6 +30,7 @@ class Video extends React.Component {
     this.recorder = React.createRef();
     this.recording = React.createRef();
 
+    this.loadSettings = this.loadSettings.bind(this);
     this.openCam = this.openCam.bind(this);
     this.predictWebcam = this.predictWebcam.bind(this);
   }
@@ -83,8 +89,8 @@ class Video extends React.Component {
   }
 
    async predictWebcam() {
-    let { children, interval } = this.state;
-    let subjectFound = false;
+    let { children, interval, settings } = this.state;
+    var subjectFound = false;
     const predictions = await this.state.model.detect(this.videoRef.current);
 
     for (let i = 0; i < children.length; i++) {
@@ -95,7 +101,8 @@ class Video extends React.Component {
     // Now lets loop through predictions and draw them to the live view if
     // they have a high confidence score.
     for (let n = 0; n < predictions.length; n++) {
-      // If we are over 66% sure we are sure we classified it right, draw it!
+      let percen = settings.percentage/100;
+
       if (predictions[n].score > 0.66) {
         const p = document.createElement('p');
         p.innerText =  Math.round(parseFloat(predictions[n].score) * 100) 
@@ -118,10 +125,19 @@ class Video extends React.Component {
         children.push(highlighter);
         children.push(p);
 
-        if (predictions[n].class == "person") {
-          subjectFound = true;
-        }
-      }
+        let target = predictions[n].class;
+        
+        settings.obj.forEach( obj => {
+          if(obj["label"] == target){
+            subjectFound = true;
+          }
+        })
+
+        // if (predictions[n].class == "person") {
+        //   subjectFound = true;
+        // }
+      } 
+  
 
       if(subjectFound){
         this.startRecording();
@@ -175,10 +191,37 @@ class Video extends React.Component {
     return color+";";
   }
 
+  loadSettings(){
+    let user = JSON.parse(sessionStorage.getItem("user"));
+    let that = this;
+    
+    axios.post(server.url+"/userSettings", { "id" : user.id }).then(res => {
+      let userSettings =  {
+        allow_audio: false
+        , percentage : 66
+        , obj : {}
+      }
+      
+      if(res.data.settings.length){
+        userSettings.allow_audio = res.data.settings[0].allow_audio;
+        userSettings.percentage = res.data.settings[0].percentage;
+      } 
+
+      if(res.data.tags.length){
+        userSettings.obj = res.data.tags;
+      } 
+
+      that.setState({
+        settings : userSettings
+      })
+
+    });
+  }
+
   async componentDidMount(){
     const model = await cocoSsd.load();
     const supported = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
-
+    this.loadSettings();
     this.setState({
       model : model
     });
@@ -229,7 +272,6 @@ class Video extends React.Component {
               })}
           </div>
           <div className="sec_video">
-            <button id="end">end stream</button>
               <div className="video_container camView" ref={ this.liveView } id="liveView">
                 <video  autoPlay muted width="640" height="480" ref={ this.videoRef }/>
               </div>

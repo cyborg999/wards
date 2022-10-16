@@ -14,7 +14,7 @@ function   Settings(props) {
     });
 
     let user = JSON.parse(sessionStorage.getItem("user"));
-    let [choice, setUserChoice ] = useState({});
+    let [choice, setUserChoice ] = useState([]);
     let [ percentage, setPercentage ] = useState(0);
     let [ allowAudio, setAllowAudio ] = useState(false);
     console.log(obj)
@@ -30,19 +30,7 @@ function   Settings(props) {
 
             if(res.data.tags.length){
                 let tags = res.data.tags
-                // tags.map( tag => {
-                //     console.log(tag)
-                //     // values.push(["label":])
-                // })
-                console.log(tags);
-                // setUserChoice(test);
-                let test = [
-                    {name: '/m/01g317', id: 1, label: 'person', value: 'person'}
-                    , {name: '/m/0199g', id: 2, label: 'bicycle', value: 'bicycle'}
-                    , {id: 9, userid: 4, tagname: 'car', label: 'car', value: 'car'}
-                ]
-                setUserChoice(test);
-
+                setUserChoice(tags);
             } 
         })
       }, []);
@@ -73,8 +61,6 @@ function   Settings(props) {
         }
     }
 
-
-
     return (
         <div className="setting">
             <h1>Settings</h1>
@@ -86,7 +72,7 @@ function   Settings(props) {
                         console.log("D2")
                         setUserChoice(choice)
                     }}
-                    defaultValue={choice}
+                    value={choice}
                     isMulti
                     name="colors"
                     options={obj}
