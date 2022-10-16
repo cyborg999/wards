@@ -15,9 +15,7 @@ class Video extends React.Component {
       , model : false
       , children : []
       , records : []
-      , lastBlob : {}
       , preloader : true
-      , interval : 0
       , settings : {
         allow_audio: false
         , percentage : 66
@@ -40,25 +38,15 @@ class Video extends React.Component {
       return;
     }
 
-    let { lastBlob, interval } = this.state;
-
     this.recording.current = false;
     this.recorder.current.stop();
-    console.log("stopped recording", lastBlob);
-
-    this.setState({
-      interval : 0
-    })
-    axios.post(server.url+"/addvideo", { videoBlob: lastBlob}).then(res => {
-      console.log(res)
-    })
-    // lastDetectionsRef.current = [];
   }
 
-  startRecording() {
+  startRecording(tags) {
     if (this.recording.current) {
       return;
     }
+    let user = JSON.parse(sessionStorage.getItem("user"));
     let { records } = this.state;
     let that = this;
     this.recording.current = true;
@@ -70,27 +58,53 @@ class Video extends React.Component {
       console.log(e.error)
     }
 
+    const blobContainer = [];
+
     this.recorder.current.ondataavailable = function(e) {
       const title = new Date() + "";
       const href = URL.createObjectURL(e.data);
 
+      blobContainer.push(e.data);
+      console.log("ondataavailable")
       try {
         records.push({ href, title });
         that.setState({
           records : records
-          , lastBlob : { href, title }
-        })
+        });
+
+        //check first if video is valid 
+        
+
       }
       catch (error) {
         console.log(error);
       }
-    };
+    }
+
+    this.recorder.current.onstop = async e => {
+   
+      console.log("onstop", blobContainer)
+   let frm = new FormData(document.getElementById("frmVid"));
+   frm.append("blobFile", new Blob(blobContainer));
+   console.log(frm)
+
+    let response = await fetch(server.url+"/addvideo", {
+        method: 'POST',
+        body: new FormData(document.getElementById("frmVid"))
+      });
+
+      console.log(frm)
+      // axios.post(server.url+"/addvideo",  {body : formData}).then(res=> {
+      //   console.log(res)
+      // });
+    }
 
   }
 
    async predictWebcam() {
-    let { children, interval, settings } = this.state;
+    let { children, settings } = this.state;
     var subjectFound = false;
+    let tags = [];
     const predictions = await this.state.model.detect(this.videoRef.current);
 
     for (let i = 0; i < children.length; i++) {
@@ -126,10 +140,14 @@ class Video extends React.Component {
         children.push(p);
 
         let target = predictions[n].class;
-        
+
         settings.obj.forEach( obj => {
           if(obj["label"] == target){
             subjectFound = true;
+
+            if(!tags.includes("target")){
+              tags.push(target)
+            }
           }
         })
 
@@ -140,7 +158,7 @@ class Video extends React.Component {
   
 
       if(subjectFound){
-        this.startRecording();
+        this.startRecording(tags);
       } else {
         this.stopRecording();
       }
@@ -254,6 +272,9 @@ class Video extends React.Component {
           <a href="" className="profile"></a>
         </div>
         <div className="sec_content">
+          <form id="frmVid">
+            <input type="hidden" name="addVid" value="1"/>
+          </form>
           <Preloader preloader={ preloader }/>
           <div className="sec_videos">
             {!records.length

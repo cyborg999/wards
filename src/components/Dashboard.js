@@ -1,4 +1,4 @@
-import { redirect, useNavigate } from "react-router-dom";
+import { redirect, useNavigate, Outlet } from "react-router-dom";
 
 function Dashboard(props) {
     const navigate = useNavigate();
@@ -11,6 +11,7 @@ function Dashboard(props) {
     return (
         <div className="dashboard">
             <h1>Dashboard page</h1>
+            <Outlet/>
         </div>
     )
 }

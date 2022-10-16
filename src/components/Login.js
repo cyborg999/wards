@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Axios from "axios";
 import server from "./../config/server";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import Errors from "./Errors";
 
 function Login(props){

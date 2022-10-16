@@ -168,10 +168,10 @@ a.logout {
   border-radius: 100%;
 }
 a.profile {
-  background: white url(./images/profile.png) no-repeat;
+  background: white url(./images/pic.jpg) center no-repeat;
   width: 40px;
   height: 40px;
-  background-size: contain;
+  background-size: cover;
   display: block;
   margin: 0 auto;
   border-radius: 100%;
