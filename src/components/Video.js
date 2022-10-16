@@ -176,11 +176,12 @@ class Video extends React.Component {
 
   async openCam(){
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      console.log("Allow",this.state.settings.allow_audio)
       try {
         // getUsermedia parameters to force video but not audio.
         const constraints = {
           video: true
-          , audio : false
+          , audio : this.state.settings.allow_audio
         };
 
         let that = this;
@@ -239,7 +240,7 @@ class Video extends React.Component {
   async componentDidMount(){
     const model = await cocoSsd.load();
     const supported = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
-    this.loadSettings();
+    await this.loadSettings();
     this.setState({
       model : model
     });
@@ -249,7 +250,7 @@ class Video extends React.Component {
       this.setState({ preloader : false})
 
       if(supported){
-        this.openCam();
+        await this.openCam();
         // console.log("cam opened")
       } else {
         console.warn('getUserMedia() is not supported by your browser');

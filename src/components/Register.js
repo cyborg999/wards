@@ -30,7 +30,7 @@ function Register(){
     return (
         <main className="login">
             <header>
-                <h1>Wards</h1>
+                <Link to="/"><h1>Wards</h1></Link>
             </header>
             <section className="sec1l">
                 <article className="container">
