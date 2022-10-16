@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 function Logout(props) {
@@ -13,7 +13,7 @@ function Logout(props) {
     }
 
     return (
-        <a href="" className="logout" onClick={ handleLogout }></a>
+        <Link to="/"className="logout"></Link>
     )
 }
 

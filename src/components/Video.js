@@ -140,8 +140,8 @@ class Video extends React.Component {
         children.push(p);
 
         let target = predictions[n].class;
-
-        settings.obj.forEach( obj => {
+        console.log(settings.obj)
+        settings.obj && settings.obj.forEach( obj => {
           if(obj["label"] == target){
             subjectFound = true;
 
@@ -276,7 +276,7 @@ class Video extends React.Component {
               : records.map( (record, idx) => {
                   return (
                     <div className="preview"  key={ idx }>
-                        <h5 className="card-title">{record.title}</h5>
+                        {/* <h5 className="card-title">{record.title}</h5> */}
                         <video controls src={record.href}></video>
                     </div>
                   );

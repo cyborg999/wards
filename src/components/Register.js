@@ -12,8 +12,12 @@ function Register(){
     const handleSubmit = (e) => {
         e.preventDefault();
         Axios.post(server.url+"/create", inputs).then(res => {
-            console.log(res)
+            console.log(res.data, res.data.length)
             setErrors(res.data);
+
+            if(res.data.length == 0){
+                setAdded(true)
+            }
         });
     }
     

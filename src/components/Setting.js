@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import objList from "./../config/cocossd";
-import "./../css/settings.css";
+import "./../css/styles.css";
 import Server from "./../config/server";
 import Select from 'react-select';
 import axios from "axios";
@@ -17,8 +17,8 @@ function   Settings(props) {
     let [choice, setUserChoice ] = useState([]);
     let [ percentage, setPercentage ] = useState(0);
     let [ allowAudio, setAllowAudio ] = useState(false);
-    console.log(obj)
-    let initialVal = [];
+    let [ added, setAdded ] = useState(false);
+
     useEffect(() => {
         //get settings
         console.log("once")
@@ -47,6 +47,7 @@ function   Settings(props) {
 
         axios.post(Server.url+"/settings", data).then(res => {
             console.log(res);
+            setAdded(true)
         })
     }
 
@@ -63,9 +64,9 @@ function   Settings(props) {
 
     return (
         <div className="setting">
-            <h1>Settings</h1>
-            <label>List of Objects</label>
+            <h3>Settings</h3>
 
+            <p className={ added ? "success" : "success hidden" }>Settings updated.</p>
             <form onSubmit={ handleSubmit }>
                 <Select
                     onChange={(choice) => {
@@ -89,11 +90,8 @@ function   Settings(props) {
                     checked={ allowAudio }
                       onChange={ handleChange }  name="allow_audio" />
                 </fieldset>
-                <input type="submit"/>
+                <input type="submit" className="btn"/>
             </form>
-            
-
-            
         </div>
     )
 }

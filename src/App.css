@@ -188,10 +188,10 @@ a.profile {
 }
 .preview {
   width: 92%;
-  background-color: #151515;
+  background-color: #f3f3f3;
   height: 190px;
   display: block;
-  margin: 10px auto 12px;
+  margin: 2px auto 3px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -201,7 +201,7 @@ a.profile {
   object-fit: cover;
 }
 .preview:nth-child(even) {
-  background-color: #101010;
+  background-color: #e8e8e8 ;
 }
 .cover {
   width: 100px;
@@ -231,7 +231,7 @@ a.profile {
   display: none;
 }
 .preloader {
-  background: white;
+  background: rgba(0,0,0,.4);
   position: absolute;
   top: 0;
   left: 0;

@@ -1,4 +1,6 @@
 import { redirect, useNavigate, Outlet, Link } from "react-router-dom";
+import Logout from "./Logout";
+import "./../css/styles.css";
 
 function Dashboard(props) {
     const navigate = useNavigate();
@@ -13,15 +15,15 @@ function Dashboard(props) {
             <header className="mainHeader">
                 <article className="container">
                     <h1>Wards</h1>
-                    <Link to="logout" className="logout"></Link>
+                    <Logout/>
                 </article>
             </header>
             <section className="main_sec1">
                 <article className="container">
                     <div className="sec_controls">
                         <ul className="sec1_nav">
-                            <li><a href="" className="home"></a></li>
-                            <li><a href="" className="live"></a></li>
+                            <li><Link to="/" className="home"></Link></li>
+                            <li><Link to="video" className="live"></Link></li>
                             <li><a href="" className="list"></a></li>
                             <li><Link to="settings" className="setting"></Link></li>
                         </ul>

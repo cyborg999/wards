@@ -8,12 +8,12 @@ import {
     Route,
   } from "react-router-dom";
 
-  import Root, { loader as RootLoader } from "./routes/root";
-  import Login from "./components/Login";
-  import Home from "./components/Home";
-  import Register from "./components/Register";
-  import Dashboard from "./components/Dashboard";
-  import Video from "./components/Video";
+import Root, { loader as RootLoader } from "./routes/root";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Register from "./components/Register";
+import Dashboard from "./components/Dashboard";
+import Video from "./components/Video";
 import Settings from "./components/Setting";
 import "./css/styles.css";
 
@@ -40,6 +40,11 @@ const router = createBrowserRouter([
               path: "settings",
               element: <Settings />,
             },
+            {
+              path: "video",
+              element: <Video />,
+            },
+            
           ],
       },
      
